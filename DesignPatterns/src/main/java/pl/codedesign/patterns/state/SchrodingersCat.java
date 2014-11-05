@@ -6,6 +6,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+/** Class using state pattern to maintain its condition. */
 public class SchrodingersCat {
 
 	private static Logger LOG = LogManager.getLogger(SchrodingersCat.class);
@@ -39,7 +40,7 @@ enum StateName {
 	UNKNOWN, ALIVE, DEAD;
 }
 
-/** State pattern interfave */
+/** State pattern interface */
 interface IState {
 	IState checkState();
 
