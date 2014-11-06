@@ -9,16 +9,15 @@ import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 
 /**
- * Implementation of State design pattern examplified by every day traveling to
- * work.
+ * Implementation of Strategy design pattern examplified by every day traveling
+ * to work.
  */
 public class MorningComute {
 
 	Context context;
 
 	/**
-	 * Some say this is the longest sensless java declaration a programmer can
-	 * write.
+	 * Some say this is the longest sensless java declaration one can code.
 	 */
 	public static void main(String... args) {
 		BasicConfigurator.configure();
@@ -90,7 +89,7 @@ class BusCommute extends AbstractCommute implements Strategy {
 		super(CommuteWay.BUS);
 	}
 
-	/** DateTime pairs of bus home departure and work arrival. */
+	/** DateTime bus stop departures, sorted descending. */
 	List<DateTime> busDepartures = Arrays.asList(
 			new DateTime(2014, 11, 5, 7, 40, 0, 0),
 			new DateTime(2014, 11, 5, 7, 20, 0, 0),
@@ -107,6 +106,7 @@ class BusCommute extends AbstractCommute implements Strategy {
 		DateTime myBusStationArrival = leaveHome.plusMinutes(busStationTimeDistance);
 		DateTime nextBus = null;
 
+		// simple selection of next best bus departure
 		for (DateTime departure : busDepartures) {
 			if (nextBus == null || myBusStationArrival.isBefore(departure)) {
 				nextBus = departure;
@@ -119,7 +119,7 @@ class BusCommute extends AbstractCommute implements Strategy {
 	}
 }
 
-/** ------- Optional class, sorts out dome declaration and enforces DRY ------- */
+/** ------- Optional class, sorts out some declaration and enforces DRY ------- */
 class AbstractCommute {
 	protected static Logger LOG = LogManager.getLogger(AbstractCommute.class);
 
