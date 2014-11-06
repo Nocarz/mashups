@@ -1,5 +1,10 @@
 package pl.codedesign.patterns.builder;
 
+/**
+ * Builder command pattern example.
+ * 
+ * @author B.Denk
+ */
 public class Bicycle {
 
 	enum Break {

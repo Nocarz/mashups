@@ -11,6 +11,8 @@ import org.joda.time.DateTime;
 /**
  * Implementation of Strategy design pattern examplified by every day traveling
  * to work.
+ * 
+ * @author B.Denk
  */
 public class MorningComute {
 
