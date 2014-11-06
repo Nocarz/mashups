@@ -1,4 +1,4 @@
-package pl.codedesign.patterns.singleton;
+package pl.codedesign.patterns.creational.singleton;
 
 /**
  * Yet another singleton template.

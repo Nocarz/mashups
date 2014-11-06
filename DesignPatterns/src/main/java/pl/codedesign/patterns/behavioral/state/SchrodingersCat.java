@@ -1,4 +1,4 @@
-package pl.codedesign.patterns.state;
+package pl.codedesign.patterns.behavioral.state;
 
 import java.util.Random;
 

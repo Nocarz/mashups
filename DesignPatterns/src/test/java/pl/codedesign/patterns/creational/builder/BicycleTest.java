@@ -1,13 +1,14 @@
-package pl.codedesign.patterns.builder;
+package pl.codedesign.patterns.creational.builder;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import pl.codedesign.patterns.builder.Bicycle.Break;
-import pl.codedesign.patterns.builder.Bicycle.Material;
-import pl.codedesign.patterns.builder.Bicycle.Suspension;
-import pl.codedesign.patterns.builder.Bicycle.Tire;
+import pl.codedesign.patterns.creational.builder.Bicycle;
+import pl.codedesign.patterns.creational.builder.Bicycle.Break;
+import pl.codedesign.patterns.creational.builder.Bicycle.Material;
+import pl.codedesign.patterns.creational.builder.Bicycle.Suspension;
+import pl.codedesign.patterns.creational.builder.Bicycle.Tire;
 
 public class BicycleTest {
 

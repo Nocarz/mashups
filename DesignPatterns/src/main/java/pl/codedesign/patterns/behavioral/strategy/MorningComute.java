@@ -1,4 +1,4 @@
-package pl.codedesign.patterns.strategy;
+package pl.codedesign.patterns.behavioral.strategy;
 
 import java.util.Arrays;
 import java.util.List;

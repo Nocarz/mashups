@@ -1,8 +1,10 @@
-package pl.codedesign.patterns.singleton;
+package pl.codedesign.patterns.creational.singleton;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
+
+import pl.codedesign.patterns.creational.singleton.BasicSingleton;
 
 public class BasicSingletonTest {
 

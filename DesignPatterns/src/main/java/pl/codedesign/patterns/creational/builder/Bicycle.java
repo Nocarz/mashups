@@ -1,4 +1,4 @@
-package pl.codedesign.patterns.builder;
+package pl.codedesign.patterns.creational.builder;
 
 /**
  * Builder command pattern example.
