@@ -14,7 +14,7 @@ import org.joda.time.DateTime;
  * 
  * @author B.Denk
  */
-public class MorningComute {
+public class MorningComuteStrategy {
 
 	Context context;
 
@@ -27,10 +27,10 @@ public class MorningComute {
 		DateTime workStart = new DateTime(2014, 11, 5, 8, 00, 0, 0);
 		DateTime leaveHome = new DateTime(2014, 11, 5, 6, 44, 58, 0);
 
-		new MorningComute(leaveHome, workStart);
+		new MorningComuteStrategy(leaveHome, workStart);
 	}
 
-	MorningComute(DateTime leaveHome, DateTime workStart) {
+	MorningComuteStrategy(DateTime leaveHome, DateTime workStart) {
 		context = new Context(new BusCommute());
 		context.commute(leaveHome, workStart);
 
