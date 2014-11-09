@@ -4,6 +4,11 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+/**
+ * Abstract factory design pattern example
+ * 
+ * @author B.Denk
+ */
 public class UnitsAbstractFactory {
 	public static void main(String... args) {
 		BasicConfigurator.configure();
@@ -20,14 +25,15 @@ public class UnitsAbstractFactory {
 
 		Navy nimitz = navyFactory.getNavyUnit(Nimitz.class);
 		nimitz.splashdown();
-
 	}
 }
 
+/** Presentation and designition. */
 enum Type {
 	NAVY, LAND, AERIAL
 }
 
+/** Optional - for DRY purpose. */
 abstract class AbstractUnit {
 	protected static Logger LOG = LogManager.getLogger(AbstractUnit.class);
 
@@ -38,18 +44,22 @@ abstract class AbstractUnit {
 	}
 }
 
+/** Interface for products branch #1 */
 interface Navy {
 	void splashdown();
 }
 
+/** Interface for products branch #2 */
 interface Land {
 	void rollout();
 }
 
+/** Interface for products branch #3 */
 interface Aerial {
 	void launch();
 }
 
+/** Concrete product of branch #1 */
 class F16 extends AbstractUnit implements Aerial {
 	public F16() {
 		super(Type.AERIAL);
@@ -60,6 +70,7 @@ class F16 extends AbstractUnit implements Aerial {
 	}
 }
 
+/** Concrete product of branch #2 */
 class Abbrams extends AbstractUnit implements Land {
 	public Abbrams() {
 		super(Type.LAND);
@@ -70,6 +81,7 @@ class Abbrams extends AbstractUnit implements Land {
 	}
 }
 
+/** Concrete product of branch #3 */
 class Nimitz extends AbstractUnit implements Navy {
 	public Nimitz() {
 		super(Type.NAVY);
@@ -80,6 +92,7 @@ class Nimitz extends AbstractUnit implements Navy {
 	}
 }
 
+/** Abstract factory for different branches. */
 abstract class AbstractFactory {
 	abstract Navy getNavyUnit(Class<? extends Navy> clazz);
 
@@ -88,6 +101,7 @@ abstract class AbstractFactory {
 	abstract Aerial getAreialUnit(Class<? extends Aerial> clazz);
 }
 
+/** Concrete factory for branch #1 */
 class NavyFactory extends AbstractFactory {
 
 	@Override
@@ -112,6 +126,7 @@ class NavyFactory extends AbstractFactory {
 	}
 }
 
+/** Concrete factory for branch #2 */
 class AerialFactory extends AbstractFactory {
 
 	@Override
@@ -136,6 +151,7 @@ class AerialFactory extends AbstractFactory {
 	}
 }
 
+/** Concrete factory for branch #3 */
 class LandFactory extends AbstractFactory {
 
 	@Override
@@ -160,6 +176,7 @@ class LandFactory extends AbstractFactory {
 	}
 }
 
+/** Factory of factories. */
 class FactoryProducer {
 	public static AbstractFactory getFactory(Type type) {
 		if (type == Type.AERIAL) {
