@@ -1,8 +1,7 @@
 package pl.codedesign.patterns.creational.factorymethod;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Implementation of Factory Method design pattern.
@@ -83,7 +82,6 @@ public class SimplePizzaFactory {
 	}
 
 	public static void main(String... args) {
-		BasicConfigurator.configure();
 		new SimplePizzaFactory();
 	}
 }

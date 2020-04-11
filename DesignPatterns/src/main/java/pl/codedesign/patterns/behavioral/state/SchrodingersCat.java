@@ -2,9 +2,8 @@ package pl.codedesign.patterns.behavioral.state;
 
 import java.util.Random;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Class using state pattern to maintain its condition.
@@ -30,8 +29,6 @@ public class SchrodingersCat {
 	}
 
 	public static void main(String... args) {
-		BasicConfigurator.configure();
-
 		SchrodingersCat cat = new SchrodingersCat();
 		cat.checkState();
 

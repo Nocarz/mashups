@@ -3,9 +3,8 @@ package pl.codedesign.patterns.behavioral.strategy;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 
 /**
@@ -22,8 +21,6 @@ public class MorningComuteStrategy {
 	 * Some say this is the longest sensless java declaration one can code.
 	 */
 	public static void main(String... args) {
-		BasicConfigurator.configure();
-
 		DateTime workStart = new DateTime(2014, 11, 5, 8, 00, 0, 0);
 		DateTime leaveHome = new DateTime(2014, 11, 5, 6, 44, 58, 0);
 
@@ -52,17 +49,17 @@ class Context {
 		this.strategy = strategy;
 	}
 
-	public void commute(DateTime leaveHome, DateTime workStart) {
-		strategy.execute(leaveHome, workStart);
+	public void commute(DateTime departureTime, DateTime arrivalTime) {
+		strategy.execute(departureTime, arrivalTime);
 	}
 }
 
-/** ------- Pattern interface. Move along, move along... ------- */
+/** ------- Pattern interface. What else could it be? ------- */
 interface Strategy {
-	void execute(DateTime leaveHome, DateTime workStart);
+	void execute(DateTime departureTime, DateTime arrivalTime);
 }
 
-/** ------- For the sake of presentation. ---------- */
+/** ------- Presentation. ---------- */
 enum CommuteWay {
 	CAR, BUS;
 }
@@ -77,10 +74,10 @@ class CarCommute extends AbstractCommute implements Strategy {
 	/** Time in minutes needed to get to work by car. */
 	private final int carTravelTime = 45;
 
-	public void execute(DateTime leaveHome, DateTime workStart) {
-		DateTime myWorkArrival = leaveHome.plusMinutes(carTravelTime);
+	public void execute(DateTime departureTime, DateTime arrivalTime) {
+		DateTime myWorkArrival = departureTime.plusMinutes(carTravelTime);
 
-		commuteResult(myWorkArrival, workStart);
+		commuteResult(myWorkArrival, arrivalTime);
 	}
 }
 

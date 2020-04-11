@@ -3,9 +3,8 @@ package pl.codedesign.patterns.behavioral.command;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Command pattern implementation.
@@ -13,10 +12,8 @@ import org.apache.log4j.Logger;
  * @author B.Denk
  */
 public class CommandPattern {
-
+	
 	public static void main(String... args) {
-		BasicConfigurator.configure();
-
 		DeviceManager manager = new DeviceManager();
 		Device hal9000 = new Device();
 
