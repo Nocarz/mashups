@@ -6,7 +6,7 @@ package pl.codedesign.patterns.creational.builder;
  * @author B.Denk
  */
 public class Bicycle {
-
+	
 	enum Break {
 		U, V, DISC;
 	}
@@ -23,70 +23,12 @@ public class Bicycle {
 		XCOUNTRY, STREET, OFFROAD;
 	}
 
-	private final Break breaks;
-	private final Suspension suspensionFront;
-	private final Suspension suspensionBack;
-	private final Material rims;
-	private final Material frame;
-	private final Tire tires;
-
-	/**
-	 * Single constructor filling all needed info from builder.
-	 * 
-	 * @param builder
-	 */
-	public Bicycle(Builder builder) {
-		this.breaks = builder.breaks;
-		this.suspensionBack = builder.suspensionBack;
-		this.suspensionFront = builder.suspensionFront;
-		this.rims = builder.rims;
-		this.frame = builder.frame;
-		this.tires = builder.tires;
-	}
-
-	/** Allows swift object construction. */
-	static class Builder {
-		private Break breaks;
-		private Suspension suspensionFront;
-		private Suspension suspensionBack;
-		private Material rims;
-		private Material frame;
-		private Tire tires;
-
-		public Bicycle build() {
-			return new Bicycle(this);
-		}
-
-		public Builder breaks(Break breaks) {
-			this.breaks = breaks;
-			return this;
-		}
-
-		public Builder suspensionFront(Suspension suspensionFront) {
-			this.suspensionFront = suspensionFront;
-			return this;
-		}
-
-		public Builder suspensionBack(Suspension suspensionBack) {
-			this.suspensionBack = suspensionBack;
-			return this;
-		}
-
-		public Builder rims(Material rims) {
-			this.rims = rims;
-			return this;
-		}
-
-		public Builder frame(Material frame) {
-			this.frame = frame;
-			return this;
-		}
-
-		public Builder tires(Tire tires) {
-			this.tires = tires;
-			return this;
-		}
-	}
+	private Break breaks;
+	private Suspension suspensionFront;
+	private Suspension suspensionBack;
+	private Material rims;
+	private Material frame;
+	private Tire tires;
 
 	public Break getBreaks() {
 		return breaks;
@@ -111,11 +53,37 @@ public class Bicycle {
 	public Tire getTires() {
 		return tires;
 	}
+	
+	public void setBreaks(Break breaks) {
+		this.breaks = breaks;
+	}
+
+	public void setSuspensionFront(Suspension suspensionFront) {
+		this.suspensionFront = suspensionFront;
+	}
+
+	public void setSuspensionBack(Suspension suspensionBack) {
+		this.suspensionBack = suspensionBack;
+	}
+
+	public void setRims(Material rims) {
+		this.rims = rims;
+	}
+
+	public void setFrame(Material frame) {
+		this.frame = frame;
+	}
+
+	public void setTires(Tire tires) {
+		this.tires = tires;
+	}
 
 	@Override
 	public String toString() {
-		return "Bicycle [breaks=" + breaks + ", suspensionFront=" + suspensionFront + ", suspensionBack="
-				+ suspensionBack + ", rims=" + rims + ", frame=" + frame + ", tires=" + tires + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Bicycle [breaks=").append(breaks).append(", suspensionFront=").append(suspensionFront)
+				.append(", suspensionBack=").append(suspensionBack).append(", rims=").append(rims).append(", frame=")
+				.append(frame).append(", tires=").append(tires).append("]");
+		return builder.toString();
 	}
-
 }
