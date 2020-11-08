@@ -2,14 +2,14 @@ package pl.codedesign.patterns.creational.singleton;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pl.codedesign.patterns.creational.singleton.BasicSingleton;
 
-public class BasicSingletonTest {
+class BasicSingletonTest {
 
 	@Test
-	public void testApp() {
+	void testApp() {
 		Integer exprected = 1;
 
 		BasicSingleton.getInstance();
